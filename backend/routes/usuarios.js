@@ -6,7 +6,6 @@ const segredoJWT = 'jwtonline'; // adicione isso se ainda não tiver
 const autenticarToken = require('../middleware/auth');
 
 
-router.use(autenticarToken);
 
 router.post('/login', (req, res) => {
   const { login, senha } = req.body;
@@ -15,7 +14,7 @@ router.post('/login', (req, res) => {
     return res.status(400).send('Login e senha são obrigatórios');
   }
 
-  const sql = 'SELECT * FROM usuarios WHERE login = ? AND senha = ?';
+  const sql = 'SELECT login, senha FROM usuarios WHERE login = ? AND senha = ?';
   db.query(sql, [login, senha], (err, results) => {
     if (err) {
       console.error('Erro no login:', err);
@@ -44,8 +43,21 @@ router.post('/login', (req, res) => {
   }); // <-- ESTA CHAVE ESTAVA FALTANDO!
 });
 
+// POST - criar novo usuário
+router.post('/usuarios/cadastro', (req, res) => {
+  const { nome, login, senha, email } = req.body;
+  const sql = 'INSERT INTO usuarios (nome, login, senha, email) VALUES (?, ?, ?, ?)';
+  db.query(sql, [nome, login, senha, email], (err, result) => {
+    if (err) {
+      console.error('Erro ao inserir usuário:', err);
+      res.status(500).send('Erro ao inserir usuário');
+    } else {
+      res.status(201).json({ id: result.insertId });
+    }
+  });
+}); 
 
-
+router.use(autenticarToken);
 
 // Exemplo: obter todos os usuários
 router.get('/usuarios', (req, res) => {
@@ -59,20 +71,7 @@ router.get('/usuarios', (req, res) => {
   });
 });
 
-// POST - criar novo usuário
-router.post('/usuarios/cadastro', (req, res) => {
-    const { nome, login, senha, email } = req.body;
-    const sql = 'INSERT INTO usuarios (nome, login, senha, email) VALUES (?, ?, ?, ?)';
-    db.query(sql, [nome, login, senha, email], (err, result) => {
-      if (err) {
-        console.error('Erro ao inserir usuário:', err);
-        res.status(500).send('Erro ao inserir usuário');
-      } else {
-        res.status(201).json({ id: result.insertId });
-      }
-    });
-});
-  
+
 // PUT - atualizar senha via JSON
 router.put('/usuarios/novasenha', (req, res) => {
     const { id, senha } = req.body;
