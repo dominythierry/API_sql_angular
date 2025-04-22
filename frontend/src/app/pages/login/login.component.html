@@ -1,8 +1,12 @@
-<h2>Login</h2>
-<form>
-  <label>Email:</label><br />
-  <input type="email" /><br />
-  <label>Senha:</label><br />
-  <input type="senha" /><br />
+<form (ngSubmit)="onSubmit()">
+  <div>
+    <label for="login">Login</label>
+    <input id="login" name="login" [(ngModel)]="login" required />
+  </div>
+  <div>
+    <label for="senha">Senha</label>
+    <input id="senha" name="senha" type="password" [(ngModel)]="senha" required />
+  </div>
   <button type="submit">Entrar</button>
+  <div ngIf="erro" style="color:red">{{ erro }}</div>
 </form>

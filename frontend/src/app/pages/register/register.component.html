@@ -1,23 +1,56 @@
+<!-- Cadastro de Usuário -->
 <form (ngSubmit)="onSubmit()" #cadastroForm="ngForm">
   <div>
     <label for="nome">Nome</label>
-    <input type="text" id="id" name="nome" [(ngModel)]="usuario.nome" required />
+    <input type="text" id="nome" name="nome" [(ngModel)]="usuario.nome" required />
   </div>
 
   <div>
     <label for="login">Login</label>
-    <input type="text" id="id" name="login" [(ngModel)]="usuario.login" required />
+    <input type="text" id="login" name="login" [(ngModel)]="usuario.login" required />
   </div>
 
   <div>
     <label for="senha">Senha</label>
-    <input type="text" id="id" name="senha" [(ngModel)]="usuario.senha" required />
+    <input type="password" id="senha" name="senha" [(ngModel)]="usuario.senha" required />
   </div>
 
   <div>
     <label for="email">Email</label>
-    <input type="text" id="id" name="email" [(ngModel)]="usuario.email" required />
+    <input type="email" id="email" name="email" [(ngModel)]="usuario.email" required />
   </div>
 
   <button type="submit" [disabled]="!cadastroForm.form.valid">Cadastrar</button>
 </form>
+
+<hr />
+
+<!-- Troca de Senha -->
+<h3>Trocar Senha</h3>
+
+<form (ngSubmit)="trocarSenha()" #formSenha="ngForm">
+  <div>
+    <label for="senhaAtual">Senha Atual</label>
+    <input type="password" id="senhaAtual" name="senhaAtual" [(ngModel)]="senhaAtual" required />
+  </div>
+
+  <div>
+    <label for="novaSenha">Nova Senha</label>
+    <input type="password" id="novaSenha" name="novaSenha" [(ngModel)]="novaSenha" required />
+  </div>
+
+  <div>
+    <label for="confirmarSenha">Confirmar Nova Senha</label>
+    <input type="password" id="confirmarSenha" name="confirmarSenha" [(ngModel)]="confirmarSenha" required />
+  </div>
+
+  <button type="submit" [disabled]="!formSenha.form.valid">Atualizar Senha</button>
+</form>
+
+<hr />
+
+<!-- Troca de Senha -->
+<h3>Deletar conta</h3>
+
+<button (click)="deletarConta()">Excluir Conta</button>
+

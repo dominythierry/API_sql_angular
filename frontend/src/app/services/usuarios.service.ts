@@ -18,4 +18,15 @@ export class UsuarioService {
   cadastrarUsuario(usuario: Usuario): Observable<any> {
     return this.http.post(`${this.API_URL}/usuarios/cadastro`, usuario);
   }
+  trocarSenha(payload: { id: number, senha: string }) {
+    return this.http.put(`${this.API_URL}/usuarios/novasenha`, payload);
+  }
+  login(login: string, senha: string) {
+    return this.http.post<any>(`${this.API_URL}/login`, { login, senha });
+  }
+  deletarUsuario(id: number) {
+    return this.http.request('delete', `${this.API_URL}/usuarios/deletar`, {
+      body: { id }
+    });
+  }
 }

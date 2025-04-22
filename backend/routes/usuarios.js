@@ -1,6 +1,51 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../config/db');
+const jwt = require('jsonwebtoken');
+const segredoJWT = 'jwtonline'; // adicione isso se ainda não tiver
+const autenticarToken = require('../middleware/auth');
+
+
+router.use(autenticarToken);
+
+router.post('/login', (req, res) => {
+  const { login, senha } = req.body;
+
+  if (!login || !senha) {
+    return res.status(400).send('Login e senha são obrigatórios');
+  }
+
+  const sql = 'SELECT * FROM usuarios WHERE login = ? AND senha = ?';
+  db.query(sql, [login, senha], (err, results) => {
+    if (err) {
+      console.error('Erro no login:', err);
+      return res.status(500).send('Erro no servidor');
+    }
+
+    if (results.length === 0) {
+      return res.status(401).send('Login ou senha inválidos');
+    }
+
+    const usuario = results[0];
+
+    // Gerar token
+    const token = jwt.sign(
+      { id: usuario.id, login: usuario.login },
+      segredoJWT,
+      { expiresIn: '1d' }
+    );
+
+   res.json({
+  token,
+  id: usuario.id,         // <-- ADICIONA ISSO
+  nome: usuario.nome,
+  login: usuario.login
+    });
+  }); // <-- ESTA CHAVE ESTAVA FALTANDO!
+});
+
+
+
 
 // Exemplo: obter todos os usuários
 router.get('/usuarios', (req, res) => {
@@ -51,23 +96,25 @@ router.put('/usuarios/novasenha', (req, res) => {
   
 // DELETE - deletar usuário via JSON
 router.delete('/usuarios/deletar', (req, res) => {
-    const { id } = req.body;
-  
-    if (!id) {
-      return res.status(400).send('ID é obrigatório para deletar');
+  const { id } = req.body;
+
+  if (!id) {
+    return res.status(400).send('ID é obrigatório para deletar');
+  }
+
+  const sql = 'DELETE FROM usuarios WHERE id = ?';
+  db.query(sql, [id], (err, result) => {
+    if (err) {
+      console.error('Erro ao deletar usuário:', err);
+      return res.status(500).send('Erro ao deletar');
     }
-  
-    const sql = 'DELETE FROM usuarios WHERE id = ?';
-    db.query(sql, [id], (err, result) => {
-      if (err) {
-        console.error('Erro ao deletar usuário:', err);
-        res.status(500).send('Erro ao deletar');
-      } else if (result.affectedRows === 0) {
-        res.status(404).send('Usuário não encontrado');
-      } else {
-        res.send('Usuário deletado com sucesso');
-      }
-    });
-});
-  
+
+    if (result.affectedRows === 0) {
+      return res.status(404).send('Usuário não encontrado');
+    }
+
+    res.send('Usuário deletado com sucesso');
+  });
+}); 
+
 module.exports = router;
