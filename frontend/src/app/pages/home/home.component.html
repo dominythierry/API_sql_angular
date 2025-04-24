@@ -1,6 +1,61 @@
-<h2>Usuários</h2>
-<ul>
-  <li *ngFor="let user of usuarios">
-    {{ user.nome }} - {{ user.email }}
-  </li>
-</ul>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Estrela | Moda Sustentável</title>
+
+</head>
+<body>
+
+  <div class="linha-titulo">
+    <div class="logo">🌿 Estrela</div>
+  </div>
+
+  <header class="header">
+    <!-- <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><a href="#" class="nav-link">Coleção</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Sobre</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Contato</a></li>
+      </ul>
+    </nav> -->
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h1 class="hero-title">Moda com propósito</h1>
+        <p class="hero-text">Estilo, conforto e consciência ambiental.</p>
+        <a href="#" class="btn btn-primary">Conheça a coleção</a>
+      </div>
+    </section>
+
+    <section class="products">
+      <h2 class="section-title">Favoritos da estação</h2>
+      <div class="product-grid">
+        <div class="product-card">
+          <img src="https://i.pinimg.com/736x/b8/d5/0b/b8d50b2496c6bd79728aa5864839f346.jpg" alt="Blusa Linho Verde" class="product-image">
+          <h3 class="product-title">Blusa Linho Verde</h3>
+          <p class="product-price">R$ 119,90</p>
+        </div>
+        <div class="product-card">
+          <img src="images/img2.jpg" alt="Calça Algodão Orgânico" class="product-image">
+          <h3 class="product-title">Calça Algodão Orgânico</h3>
+          <p class="product-price">R$ 189,90</p>
+        </div>
+        <div class="product-card">
+          <img src="images/img3.jpg" alt="Vestido Floral Sustentável" class="product-image">
+          <h3 class="product-title">Vestido Floral Sustentável</h3>
+          <p class="product-price">R$ 249,90</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="footer-text">&copy; 2025 Estrela - Moda Sustentável</p>
+    <p class="footer-text">Feito com 🤎 e respeito ao planeta</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,216 @@
+:root {
+    --bege: #f5f5dc;
+    --marrom: #5e3a1e;
+    --verde: #2e8b57;
+    --verde-claro: #e8f5e9;
+    --branco: #ffffff;
+    --preto: #333333;
+    --sombra: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: var(--bege);
+    color: var(--marrom);
+    line-height: 1.6;
+  }
+
+  /* Linha do Título e nome da loja */
+  .linha-titulo {
+    height: 100px;
+  }
+
+  /* Cabeçalho - imagem */
+  .header {
+    background-image: url('https://i.pinimg.com/736x/b8/d5/0b/b8d50b2496c6bd79728aa5864839f346.jpg');
+    background-size: cover;
+    background-position: center;
+    color: var(--branco);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    box-shadow: var(--sombra);
+    height: 250px;
+  }
+  
+  .logo {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  /* .nav-list {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+  } */
+  
+  /* .nav-link {
+    color: var(--branco);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-link:hover {
+    color: var(--bege);
+  } */
+  
+  /* Hero Section */
+  .hero {
+    background-color: var(--marrom);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--branco);
+    padding: 2rem;
+    position: relative;
+  }
+  
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .hero-text {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Botões */
+  .btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-primary {
+    background-color: var(--verde);
+    color: var(--branco);
+  }
+  
+  .btn-primary:hover {
+    background-color: var(--marrom);
+    color: var(--bege);
+    transform: translateY(-2px);
+  }
+  
+  /* Seção de Produtos */
+  .products {
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--marrom);
+  }
+  
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .product-card {
+    background: var(--branco);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--sombra);
+    transition: transform 0.3s ease;
+  }
+  
+  .product-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .product-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+  
+  .product-title {
+    font-size: 1.2rem;
+    margin: 1rem 0 0.5rem;
+    padding: 0 1rem;
+  }
+  
+  .product-price {
+    font-size: 1.1rem;
+    color: var(--verde);
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  /* Footer */
+  .footer {
+    background-color: var(--verde);
+    color: var(--branco);
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-top: 4rem;
+  }
+  
+  .footer-text {
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .header {
+      flex-direction: column;
+      padding: 1rem;
+    }
+  
+    .nav-list {
+      margin-top: 1rem;
+    }
+  
+    .hero-title {
+      font-size: 2rem;
+    }
+  
+    .hero-text {
+      font-size: 1rem;
+    }
+  
+    .product-grid {
+      grid-template-columns: 1fr;
+    }
+  }

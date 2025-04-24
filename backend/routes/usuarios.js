@@ -57,7 +57,6 @@ router.post('/usuarios/cadastro', (req, res) => {
   });
 }); 
 
-router.use(autenticarToken);
 
 // Exemplo: obter todos os usuários
 router.get('/usuarios', (req, res) => {
@@ -115,5 +114,6 @@ router.delete('/usuarios/deletar', (req, res) => {
     res.send('Usuário deletado com sucesso');
   });
 }); 
+router.use(autenticarToken);
 
 module.exports = router;

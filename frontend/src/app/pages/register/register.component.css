@@ -1,81 +1,93 @@
 :root {
-  --verde: #2ecc71;
-  --bege: #f9f5e3;
-  --marrom: #412d23;
-  --marrom-claro: #5c4033;
-  --branco: #ffffff;
+  --verde: #1ec575;
+  --verde-claro: #8bd49b;
+  --bege: #67ba64;
+  --marrom-escuro: #412d21;
+  --marrom: #6f4f31;
+  --marrom-claro: #dbbf8f;
 }
 
 body {
   margin: 0;
+  padding: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: var(--bege);
-  color: var(--marrom);
-  padding: 40px;
+  background: radial-gradient( yellow, orange);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
-
-.registring {
-  max-width: 900px;
-  margin: 0 auto;
-  background-color: var(--branco);
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-}
-
-.registring h3 {
-  margin-top: 40px;
-  color: var(--marrom-claro);
-}
-
-form {
+.container {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  margin-bottom: 30px;
+  gap: 2rem;
+  width: 100%;
+  max-width: 450px;
+  padding: 1rem;
 }
 
-form div {
-  display: flex;
-  flex-direction: column;
+.card {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #333;
 }
 
 label {
-  font-weight: bold;
-  color: var(--marrom);
-  margin-bottom: 5px;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  display: block;
 }
 
-input[type="text"],
-input[type="password"],
-input[type="email"] {
-  padding: 10px;
-  border: 1px solid var(--marrom-claro);
-  border-radius: 8px;
-  background-color: #fff9f0;
-  font-size: 14px;
-  color: var(--marrom);
+.input-group {
+  display: flex;
+  align-items: center;
+  border: 2px solid #ccc;
+  border-radius: 25px;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.input-group .icon {
+  margin-right: 10px;
+  font-size: 1.2rem;
+  color: #ff6a00;
+}
+
+.input-group input {
+  border: none;
+  outline: none;
+  flex: 1;
+  font-size: 1rem;
 }
 
 button {
-  background-color: var(--verde);
-  color: white;
-  font-weight: bold;
-  font-size: 15px;
-  padding: 12px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
+  width: 100%;
   border: none;
-  border-radius: 8px;
+  padding: 0.8rem;
+  border-radius: 25px;
+  background: linear-gradient(to right bottom, #ffc400, #fce709);
+  color: black;
+  font-weight: bold;
+  font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: 0.3s;
 }
 
 button:hover {
-  background-color: #27ae60;
+  opacity: 0.7;
 }
 
-hr {
-  margin: 40px 0;
-  border: none;
-  border-top: 1px solid #ccc;
+.card.danger button {
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
+  color: var(--marrom-claro);
+  background: linear-gradient(to right, #562b1e, #8d4425);
 }

@@ -1,66 +1,67 @@
-<!-- Cadastro de Usuário -->
+<body>
+  <div class="container">
+    <!-- Cadastro -->
+    <div class="card">
+      <h2>Cadastro</h2>
+      <form (ngSubmit)="onSubmit()" #cadastroForm="ngForm">
+        <label>Nome completo:</label>
+        <div class="input-group">
+          <span class="icon">👤</span>
+          <input type="text" name="nome" [(ngModel)]="usuario.nome" required />
+        </div>
 
+        <label>Login:</label>
+        <div class="input-group">
+          <span class="icon">🔑</span>
+          <input type="text" name="login" [(ngModel)]="usuario.login" required />
+        </div>
 
- <div class="registring">
+        <label>Senha:</label>
+        <div class="input-group">
+          <span class="icon">🔒</span>
+          <input type="password" name="senha" [(ngModel)]="usuario.senha" required />
+        </div>
 
-  <hr />
+        <label>Email:</label>
+        <div class="input-group">
+          <span class="icon">📧</span>
+          <input type="email" name="email" [(ngModel)]="usuario.email" required />
+        </div>
 
-<!-- Troca de Senha -->
-<h3 class="txtcadastro">Cadastro</h3>
+        <button type="submit" [disabled]="!cadastroForm.form.valid">Cadastrar</button>
+      </form>
+    </div>
 
-<form (ngSubmit)="onSubmit()" #cadastroForm="ngForm">
-  <div>
-    <label for="nome">Nome</label>
-    <input type="text" id="nome" name="nome" [(ngModel)]="usuario.nome" required />
+    <!-- Trocar Senha -->
+    <div class="card">
+      <h2>Trocar Senha</h2>
+      <form (ngSubmit)="trocarSenha()" #formSenha="ngForm">
+        <label>Senha Atual:</label>
+        <div class="input-group">
+          <span class="icon">🔒</span>
+          <input type="password" name="senhaAtual" [(ngModel)]="senhaAtual" required />
+        </div>
+
+        <label>Nova Senha:</label>
+        <div class="input-group">
+          <span class="icon">🆕</span>
+          <input type="password" name="novaSenha" [(ngModel)]="novaSenha" required />
+        </div>
+
+        <label>Confirmar Nova Senha:</label>
+        <div class="input-group">
+          <span class="icon">✔️</span>
+          <input type="password" name="confirmarSenha" [(ngModel)]="confirmarSenha" required />
+        </div>
+
+        <button type="submit" [disabled]="!formSenha.form.valid">Atualizar Senha</button>
+      </form>
+    </div>
+
+    <!-- Deletar Conta -->
+    <div class="card danger">
+      <h2>⚠️DELETAR CONTA!⚠️</h2>
+      <button (click)="deletarConta()">Excluir Conta</button>
+    </div>
   </div>
-
-  <div>
-    <label for="login">Login</label>
-    <input type="text" id="login" name="login" [(ngModel)]="usuario.login" required />
-  </div>
-
-  <div>
-    <label for="senha">Senha</label>
-    <input type="password" id="senha" name="senha" [(ngModel)]="usuario.senha" required />
-  </div>
-
-  <div>
-    <label for="email">Email</label>
-    <input type="email" id="email" name="email" [(ngModel)]="usuario.email" required />
-  </div>
-
-  <button type="submit" [disabled]="!cadastroForm.form.valid">Cadastrar</button>
-</form>
-
-<hr />
-
-<!-- Troca de Senha -->
-<h3>Trocar Senha</h3>
-
-<form (ngSubmit)="trocarSenha()" #formSenha="ngForm">
-  <div>
-    <label for="senhaAtual">Senha Atual</label>
-    <input type="password" id="senhaAtual" name="senhaAtual" [(ngModel)]="senhaAtual" required />
-  </div>
-
-  <div>
-    <label for="novaSenha">Nova Senha</label>
-    <input type="password" id="novaSenha" name="novaSenha" [(ngModel)]="novaSenha" required />
-  </div>
-
-  <div>
-    <label for="confirmarSenha">Confirmar Nova Senha</label>
-    <input type="password" id="confirmarSenha" name="confirmarSenha" [(ngModel)]="confirmarSenha" required />
-  </div>
-
-  <button type="submit" [disabled]="!formSenha.form.valid">Atualizar Senha</button>
-</form>
-
-<hr />
-
-<!-- Troca de Senha -->
-<h3>Deletar conta</h3>
-
-<button (click)="deletarConta()">Excluir Conta</button>
-
-</div>
+</body>
