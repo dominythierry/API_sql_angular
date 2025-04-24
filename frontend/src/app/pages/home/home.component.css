@@ -1,13 +1,4 @@
-:root {
-    --bege: #f5f5dc;
-    --marrom: #5e3a1e;
-    --verde: #2e8b57;
-    --verde-claro: #e8f5e9;
-    --branco: #ffffff;
-    --preto: #333333;
-    --sombra: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
+
   * {
     margin: 0;
     padding: 0;
@@ -19,11 +10,13 @@
     background-color: var(--bege);
     color: var(--marrom);
     line-height: 1.6;
+    box-shadow: 0 20px 12px rgba(0, 0, 0, 0.2);
   }
 
   /* Linha do Título e nome da loja */
   .linha-titulo {
     height: 100px;
+    background-image: url('https://i.pinimg.com/736x/6d/8b/3b/6d8b3ba0ff8a4cb77b1913943769ea86.jpg');
   }
 
   /* Cabeçalho - imagem */
@@ -36,13 +29,14 @@
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    box-shadow: var(--sombra);
     height: 250px;
+    box-shadow: 0 20px 12px rgba(0, 0, 0, 0.2);
   }
   
   .logo {
-    font-size: 2rem;
-    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    padding-bottom: -100px;
   }
   
   /* .nav-list {
@@ -64,7 +58,7 @@
   
   /* Hero Section */
   .hero {
-    background-color: var(--marrom);
+    background: linear-gradient(to right top, var(--marrom-escuro), var(--marrom));
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -76,6 +70,8 @@
     color: var(--branco);
     padding: 2rem;
     position: relative;
+    box-shadow: 0 20px 12px rgba(0, 0, 0, 0.2);
+
   }
   
   .hero::before {
@@ -98,12 +94,14 @@
     font-size: 2.5rem;
     margin-bottom: 1rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    color: var(--bege);
   }
   
   .hero-text {
     font-size: 1.2rem;
     margin-bottom: 2rem;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    color: var(--bege);
   }
   
   /* Botões */
@@ -117,8 +115,8 @@
   }
   
   .btn-primary {
-    background-color: var(--verde);
-    color: var(--branco);
+    background-color: var(--verde-escuro);
+    color: white;
   }
   
   .btn-primary:hover {
@@ -180,7 +178,7 @@
   
   /* Footer */
   .footer {
-    background-color: var(--verde);
+    background-color: var(--verde-escuro);
     color: var(--branco);
     text-align: center;
     padding: 2rem 1rem;
@@ -189,6 +187,7 @@
   
   .footer-text {
     margin-bottom: 0.5rem;
+    color: white;
   }
   
   /* Responsividade */
