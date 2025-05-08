@@ -10,31 +10,28 @@
 
   <div class="linha-titulo">
     <div class="logo">
-    <img src="http://localhost:8000/frontend/src/imgs/logo-moda-sustentavel.png" style="height: 150px;" alt="Logo Estrela" >
+    <img src="logo-moda-sustentavel.png" style="height: 150px;" alt="Logo Estrela" >
   </div>
   </div>
 
-  <header class="header">
-    <!-- <nav class="nav">
-      <ul class="nav-list">
-        <li class="nav-item"><a href="#" class="nav-link">Coleção</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">Sobre</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">Contato</a></li>
-      </ul>
-    </nav> -->
-  </header>
+  <header class="header"></header>
 
   <main>
     <section class="hero">
       <div class="hero-content">
         <h1 class="hero-title">Moda com propósito</h1>
         <p class="hero-text">Estilo, conforto e consciência ambiental.</p>
-        <a href="#" class="btn btn-primary">Conheça a coleção</a>
+        <a href="#collection-carrousel" class="btn btn-primary">Conheça a coleção</a>
       </div>
     </section>
 
+
+    <!-- Produtos Página Inicial -->
     <section class="products">
       <h2 class="section-title">Favoritos da estação</h2>
+      <h1 class="emoji">🤎🤍</h1>
+      <h1 class="emoji1">🤎🤍</h1>
+
       <div class="product-grid">
         <div class="product-card">
           <img src="https://i.pinimg.com/736x/5f/51/da/5f51dab1319e28b169b57af8d8a50e37.jpg" alt="Blusa Linho Verde" class="product-image">
@@ -51,9 +48,83 @@
           <h3 class="product-title">Vestido Midi Floral</h3>
           <p class="product-price">R$ 249,90</p>
         </div>
+        <div class="product-card">
+          <img src="https://i.pinimg.com/474x/c7/bb/95/c7bb9592ad4a12103d55482c5b3c3ebd.jpg" alt="Jumpsuit Azul Mar" class="product-image">
+          <h3 class="product-title">Jumpsuit Azul Mar</h3>
+          <p class="product-price">R$ 209,90</p>
+        </div>
+        <div class="product-card">
+          <img src="https://i.pinimg.com/736x/0d/07/51/0d0751aff73e3678843352b7252479ba.jpg" alt="Blazer Branco Algodão" class="product-image">
+          <h3 class="product-title">Blazer Branco Algodão</h3>
+          <p class="product-price">R$ 159,90</p>
+        </div>
+        <div class="product-card">
+          <img src="https://i.pinimg.com/474x/12/89/6f/12896fad2dba9f73b7f2a145925a3dbc.jpg" alt="Saia Midi Lilás" class="product-image">
+          <h3 class="product-title">Saia Midi Lilás</h3>
+          <p class="product-price">R$ 179,90</p>
+        </div>
       </div>
     </section>
+
+
+    <!-- Coleção Classy Winter -->
+<div id="collection-carrousel">
+
+  <h2 class="collection-title">Coleção Classy Winter</h2>
+
+<div class="carousel-wrapper">
+
+  <div class="carousel-track">
+    <div class="product-card" *ngFor="let produto of visibleProdutos">
+      <img [src]="produto.imagem" alt="Produto" class="product-image" />
+      <h3 class="product-title">{{ produto.nome }}</h3>
+      <p class="product-price">{{ produto.preco }}</p>
+    </div>
+  </div>
+  
+</div>
+
+<h5 class="frase">Sofisticação em cada camada: uma coleção pensada para enfrentar o frio com graça e elegância.</h5>
+
+<div class="carousel-controls">
+  <button class="carousel-button" (click)="moveCarousel(1)">←</button>
+  <button class="carousel-button" (click)="moveCarousel(-1)">→</button>
+</div>
+
+</div>
+
+
+<!-- Frase de marketing da marca -->
+<div class="frases">
+
+<div class="frase-estrela">
+
+  <div class="frase1">Produzir uma única camiseta convencional consome 2.700 litros de água <br> o equivalente ao que uma pessoa bebe em 2 anos.<br>
+   <div class="frase2"> Na Estrela, criamos moda com consciência: menos impacto, mais propósito.</div>
+  </div>
+
+</div>
+
+<div class="frase-citacao"> "A Terra fornece o suficiente para as necessidades de todos, mas não para a ganância de alguns." – Gandhi.
+</div>
+
+</div>
+
+
+<!-- Carousel Slides -->
+<div class="carousel-container">
+  <div class="carousel-slide">
+    <img [src]="slides[currentIndex1]" alt="Slide atual" />
+  </div>
+
+  <div class="carousel-controls">
+    <button class="slides-button" (click)="prevSlide()">←</button>
+    <button class="slides-button" (click)="nextSlide()">→</button>
+  </div>
+</div>
+
   </main>
+
 
   <footer class="footer">
     <p class="footer-text">&copy; 2025 Estrela - Moda Sustentável</p>

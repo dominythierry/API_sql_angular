@@ -6,7 +6,7 @@
   }
   
   body {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: var(--fonte-padrao);
     background-color: var(--bege);
     color: var(--marrom);
     line-height: 1.6;
@@ -21,7 +21,7 @@
 
   /* Cabeçalho - imagem */
   .header {
-    background-image: url('https://i.pinimg.com/736x/b8/d5/0b/b8d50b2496c6bd79728aa5864839f346.jpg');
+    background-image: url('https://i.pinimg.com/736x/b1/16/9f/b1169f0a5f9adc3ac59e92c735392010.jpg');
     background-size: cover;
     background-position: center;
     color: var(--branco);
@@ -39,24 +39,6 @@
     padding-bottom: -100px;
   }
   
-  /* .nav-list {
-    display: flex;
-    list-style: none;
-    gap: 1.5rem;
-  } */
-  
-  /* .nav-link {
-    color: var(--branco);
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-  }
-  
-  .nav-link:hover {
-    color: var(--bege);
-  } */
-  
-  /* Hero Section */
   .hero {
     background: linear-gradient(to right top, var(--marrom-escuro), var(--marrom));
     background-size: cover;
@@ -136,6 +118,22 @@
     margin-bottom: 2rem;
     color: var(--marrom);
   }
+
+  .emoji {
+    width: 50px;
+    /* display: flex;
+    justify-content: flex-end; */
+    position: relative;
+    top: -100px;
+    left: 1130px;
+  }
+
+  .emoji1 {
+    width: 50px;
+    position: relative;
+    top: -178px;
+
+  }
   
   .product-grid {
     display: grid;
@@ -143,6 +141,8 @@
     gap: 2rem;
     max-width: 1200px;
     margin: 0 auto;
+    margin-bottom: 70px;
+    margin-top: -120px;
   }
   
   .product-card {
@@ -151,6 +151,7 @@
     overflow: hidden;
     box-shadow: var(--sombra);
     transition: transform 0.3s ease;
+    cursor: pointer;
   }
   
   .product-card:hover {
@@ -212,4 +213,208 @@
     .product-grid {
       grid-template-columns: 1fr;
     }
+  }
+
+  #collection-carrousel {
+    background:
+    radial-gradient(ellipse at top, var(--verde-escuro), transparent),
+    radial-gradient(ellipse at bottom, var(--verde), transparent);
+    text-align: center;
+    padding: 4rem 2rem;
+    position: relative;
+
+
+  }
+
+  .carousel-wrapper {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .collection-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: white;
+  }
+  .collection-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  <!-- CSS básico para carrossel --
+
+  .collection-grid {
+    display: flex;
+    gap: 1rem;
+    transition: transform 0.3s ease;
+  }
+
+  .product-card {
+    flex: 0 0 250px;
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    border-radius: 8px;
+  }
+
+
+
+
+  .carousel-wrapper .collection-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--verde-escuro);
+  }
+
+  .carousel-wrapper #carrousel-main {
+    overflow: hidden;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+
+  .carousel-wrapper .product-card {
+    flex: 0 0 calc(20% - 1.5rem); /* 4 cards por vez com gap */
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .carousel-wrapper .product-title {
+    margin: 0.5rem 0 0.2rem;
+    font-size: 1rem;
+  }
+
+  .carousel-wrapper .product-price {
+    color: #444;
+  }
+
+
+
+  /* Responsivo para telas menores */
+  @media (max-width: 900px) {
+    .product-card {
+      flex: 0 0 calc(50% - 1rem); /* 2 por vez */
+    }
+  }
+
+  @media (max-width: 600px) {
+    .product-card {
+      flex: 0 0 100%; /* 1 por vez */
+    }
+  }
+
+
+
+
+  
+  .carousel-wrapper {
+    overflow: hidden;
+    width: 100%;
+    padding: 0 1rem;
+    margin-bottom: 20px;
+  }
+  
+  .carousel-track {
+    display: flex;
+    gap: 1rem;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .carousel-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+  
+  .carousel-button {
+    padding: 10px 20px;
+    margin: 0 5px;
+    background-color: var(--verde-escuro);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  
+
+
+
+
+  .carousel-container {
+    position: relative;
+    /* width: 800px; */
+    height: 350px;
+    overflow: hidden;
+    margin-top: 100px;
+  }
+  
+  .carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  
+  .slides-button {
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    margin: 0 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+
+  .carousel-controls {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+  }
+
+
+  .frase {
+    font-family: var(--fonte2);
+    position: absolute;
+    margin-top: 20px;
+    color: var(--marrom-escuro);
+    
+  }
+
+  .frase-estrela {
+    margin: 30px;
+    display: flex;
+    align-items: center;
+    border-radius: 18px;
+    background: radial-gradient(circle, var(--marrom) 20%, var(--marrom-escuro) 100%);
+    width: 800px;
+    height: 200px;
+    box-shadow: 6px 6px 6px rgba(0.2, 0.2, 0.2, 0.2);
+    position: relative;
+    left: 200px;
+  }
+
+  .frase1 {
+    font-family: var(--fonte2);
+    text-align: center;
+    font-size: larger;
+    width: 100%;
+    color: var(--bege);
+  }
+
+  .frase2 {
+    color: var(--verde-claro);
+    font-family: var(--fonte-padrao);
+  }
+
+  .frase-citacao {
+    display: flex;
+    justify-content: center;  /*horizontal*/
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: large;
   }

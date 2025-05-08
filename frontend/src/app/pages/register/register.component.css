@@ -1,17 +1,9 @@
-:root {
-  --verde: #1ec575;
-  --verde-claro: #8bd49b;
-  --bege: #67ba64;
-  --marrom-escuro: #412d21;
-  --marrom: #6f4f31;
-  --marrom-claro: #dbbf8f;
-}
-
 body {
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: radial-gradient( yellow, orange);
+  /* background: linear-gradient( var(--marrom-claro), var(--marrom-escuro)); */
+  background-color: var(--bege);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,7 +20,7 @@ body {
 }
 
 .card {
-  background: white;
+  background: linear-gradient(rgb(255, 255, 255), rgb(239, 239, 239));
   border-radius: 15px;
   padding: 2rem;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
@@ -49,7 +41,7 @@ label {
 .input-group {
   display: flex;
   align-items: center;
-  border: 2px solid #ccc;
+  border: 2px solid #190e0e;
   border-radius: 25px;
   padding: 0.5rem 1rem;
   margin-bottom: 1rem;
@@ -68,14 +60,19 @@ label {
   font-size: 1rem;
 }
 
+input.ng-invalid {
+  background-color: transparent;
+  border: none; /* opcional: remove a borda */
+  color: inherit; /* herda a cor do texto do pai */}
+
 button {
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
   width: 100%;
   border: none;
   padding: 0.8rem;
   border-radius: 25px;
-  background: linear-gradient(to right bottom, #ffc400, #fce709);
-  color: black;
+  background: var(--verde-escuro);
+  color: rgb(227, 227, 227);
   font-weight: bold;
   font-size: 1rem;
   cursor: pointer;
@@ -83,7 +80,9 @@ button {
 }
 
 button:hover {
-  opacity: 0.7;
+  background-color: var(--marrom);
+  color: var(--bege);
+  transform: translateY(-2px);
 }
 
 .card.danger button {

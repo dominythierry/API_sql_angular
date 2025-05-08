@@ -1,0 +1,142 @@
+
+body {
+    margin: auto;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    overflow-x: hidden;
+    background: linear-gradient(135deg, white, var(--bege)); /* Garante que o fundo cubra tudo */
+  }
+
+  .gif-box {
+    position: relative; /* Referência para o posicionamento do GIF */
+    background-color: white;
+    overflow: hidden; /* opcional: impede que o gif saia da div */
+  }
+  
+  .gif-sobreposto {
+    height: 50vh;
+    position: absolute;
+    top: 10%;
+    left: 120px;
+    transform: translate(-50%, -50%) rotate(-15deg); /* 10 graus de rotação */
+    z-index: 10;
+  }
+  
+  .login-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, white, var(--bege));
+  }
+  
+  .icon{
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .login-box {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: white;
+    padding: 100px 60px;
+    border-radius: 20px;
+    width: 320px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  
+  .avatar {
+    margin-bottom: 50px;
+  }
+  
+  .avatar img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #969696, #ffffff);
+    padding: 3px;
+  }
+  
+  .login-title {
+    margin-top: -35px; /* Move o texto LOGIN para cima */
+    text-align: center;
+    padding-bottom: 45px;
+  }
+  
+  
+  .login-box h3 {
+    margin-bottom: 30px;
+    font-weight: 500;
+    color: #333;
+  }
+  
+  .input-group {
+    position: relative;
+    margin-bottom: 35px;
+  }
+  
+  .input-group input {
+    width: 80%;
+    padding: 10px 10px 10px 40px;
+    border: none;
+    border-radius: 12px;
+    background-color: #f0f0f0;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+  }
+  
+  .input-group .icon {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 16px;
+  }
+  
+  .options {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    margin-bottom: 20px;
+  }
+  
+  .options a {
+    text-decoration: none;
+    color: #007bff;
+  }
+  
+  .login-button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(to right, var(--marrom), var(--marrom-claro));
+    border: none;
+    color: var(--bege);
+    font-weight: bold;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 1.5s ease, color 0.3s ease, transform 0.2s ease; /* Mudamos de background-color para background */
+  }
+  
+  .login-button:hover {
+    background: linear-gradient(to right, var(--verde-escuro), var(--)); /* Gradiente que vai ser suavizado */
+    color: #ffffff; /* Cor do texto */
+    transform: scale(1.05);
+  } 
+  @media (max-width: 480px) {
+    body{
+        zoom: 0.94; /* reduz visualmente sem causar scroll */
+        padding: 0px;
+    }
+
+    .login-container {
+      margin: 20px;
+      padding: 20px;
+    }
+  
+    .login-title {
+      font-size: 20px;
+    }
+  
+    .login-button {
+      font-size: 14px;
+      padding: 10px;
+    }
+  }

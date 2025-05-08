@@ -2,13 +2,15 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';  
 import { UsuarioService } from '../../services/usuarios.service';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'app-login',
-  imports: [FormsModule],
+  imports: [FormsModule,CommonModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
+  
 })
 export class LoginComponent {
   login: string = '';

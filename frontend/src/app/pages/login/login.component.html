@@ -1,12 +1,29 @@
-<form (ngSubmit)="onSubmit()">
-  <div>
-    <label for="login">Login</label>
-    <input id="login" name="login" [(ngModel)]="login" required />
+<div class="gif-box">
+  <img src="https://static.vecteezy.com/system/resources/previews/019/053/716/large_2x/rope-knots-line-png.png" class="gif-sobreposto" alt="efeito">
+
+  <div class="login-container">
+    <div class="login-box">
+      <div class="avatar">
+        <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="user icon">
+      </div>
+      <h2 class="login-title">LOGIN</h2>
+
+      <form class="login-form" (ngSubmit)="onSubmit()" #loginForm="ngForm">
+        <div class="input-group">
+          <i class="icon">👤</i>
+          <input type="email" name="login" [(ngModel)]="login" placeholder="email" required />
+        </div>
+        <div class="input-group">
+          <i class="icon">🔒</i>
+          <input type="password" name="senha" [(ngModel)]="senha" placeholder="senha" required />
+        </div>
+        <div class="options">
+          <label><input type="checkbox" /> Lembrar-me</label>
+        </div>
+        <button type="submit" class="login-button">Entrar</button>
+      </form>
+
+      <p class="erro" *ngIf="erro">{{ erro }}</p>
+    </div>
   </div>
-  <div>
-    <label for="senha">Senha</label>
-    <input id="senha" name="senha" type="password" [(ngModel)]="senha" required />
-  </div>
-  <button type="submit">Entrar</button>
-  <div ngIf="erro" style="color:red">{{ erro }}</div>
-</form>
+</div>
